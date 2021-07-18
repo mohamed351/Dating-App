@@ -1,0 +1,44 @@
+<h2 class="text-center mt-5">Sign Up</h2>
+<div class="d-flex justify-content-center">
+ 
+    <div class="width-80">
+        <form (ngSubmit)="registerUser()" [formGroup]="registerForm">
+            <div class="form-group">
+                <label>UserName</label>
+                <input type="text" class="form-control" formControlName="userName" placeholder="UserName" />
+                <div class="text-danger" *ngIf=" this.userName?.invalid && this.userName?.touched ">
+                    <span *ngIf="this.userName?.errors?.required"> The UserName is Required</span>
+                     </div>
+            </div>
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" formControlName="password" class="form-control" placeholder="Password" />
+                <div class="text-danger" *ngIf=" this.password?.invalid && this.password?.touched ">
+                    <span *ngIf="this.password?.errors?.required"> The Password is Required</span>
+                     </div>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" class="form-control" formControlName="email" placeholder="Email" />
+                <div class="text-danger" *ngIf=" this.email?.invalid && this.email?.touched ">
+                    <span *ngIf="this.email?.errors?.required"> The email is Required</span>
+                    <span *ngIf="this.email?.errors?.email"> The email is not correct format</span>
+                     </div>
+            </div>
+
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" class="form-control" formControlName="phone" placeholder="Phone" />
+                <div class="text-danger" *ngIf=" this.phone?.invalid && this.phone?.touched ">
+                    <span *ngIf="this.email?.errors?.required"> The phone is Required</span>
+                   
+                     </div>
+            </div>
+            <div class="mt-2 d-flex justify-content-center">
+                <button [disabled]="!this.registerForm.valid" type="submit" class="btn btn-primary width-40"> Sign Up</button>
+                <button class="btn btn-default width-40 ml-1" (click)="cancelRegisterMode()"> Cancel</button>
+            </div>
+        </form>
+        
+    </div>
+</div>

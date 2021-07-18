@@ -1,0 +1,15 @@
+<ng-container *ngIf="!this.auth.registerMode" >
+    <h2 class="text-center mt-5">Dating App</h2>
+    <p class="text-center">Find your match</p>
+    <div class="d-flex justify-content-center mt-4">
+   
+        <button *ngIf="!this.auth.isLoggedIn()" (click)="changeRegisterMode()" class="mx-2 btn  btn-warning">Register</button>
+        
+        <a href="#" class="mx-2 btn btn-primary">Learn more</a>
+    </div>
+</ng-container>
+
+
+<div *ngIf="this.auth.registerMode">
+<app-register></app-register>
+</div>
