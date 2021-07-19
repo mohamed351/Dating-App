@@ -40,7 +40,7 @@ namespace DatingApp.API.Controllers
                 new Claim(ClaimTypes.NameIdentifier, userResult.ID.ToString()),
                 new Claim(ClaimTypes.MobilePhone, userResult.Phone)
             };
-            var key = new SymmetricSecurityKey(Encoding.Unicode.GetBytes(_configuration.GetSection("AppSettings:Token").Value));
+            var key = new SymmetricSecurityKey(Encoding.Unicode.GetBytes((_configuration["AppSettings:Token"].ToString())));
             var signer = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
             var tokenDecrptor = new SecurityTokenDescriptor()
             {

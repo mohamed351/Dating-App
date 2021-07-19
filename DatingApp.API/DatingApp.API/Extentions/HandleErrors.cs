@@ -16,4 +16,14 @@ namespace DatingApp.API.Extentions
 
         }
     }
+    public static class DateExtentions
+    {
+        public static int CalcuateAge(this DateTime time)
+        {
+            int ThisYear = DateTime.Now.Year;
+            return ThisYear - time.Year;
+
+        }
+
+    }
 }
