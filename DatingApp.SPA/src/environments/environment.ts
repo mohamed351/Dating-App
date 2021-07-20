@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  URL:"http://localhost:51505"
+  URL:"http://localhost:51505",
+  origins:["localhost:51505"],
+  notAllowedOrigin:["http://localhost:51505/api/Auth/Register"]
 };
 
 /*

@@ -1,0 +1,43 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-3">
+                <div class="card">
+                    <img [src]="userModel?.photoUrl" class="card-img-top" />
+                    <div class="card-body">
+                        <h2>Member Info</h2>
+                        <div>
+                            <strong>User Name</strong>
+                            <p>{{userModel?.userName}}</p>
+                        </div>
+                        <div>
+                            <strong>Age</strong>
+                            <p>{{userModel?.age}}</p>
+                        </div>
+                        <div>
+                            <strong>Region</strong>
+                            <p>{{userModel?.country}} / {{userModel?.city}} </p>
+                        </div>
+                        <div>
+                            <strong>Email</strong>
+                            <p>{{userModel?.email}}</p>
+                        </div>
+                        <div>
+                            <strong>Gender</strong>
+                            <p>{{userModel?.gender == 1 ? "male":"female"}}</p>
+                        </div>
+                        <div>
+                            <strong>Last Time Active</strong>
+                            <p> {{userModel?.lastTimeActive |date}}</p>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <button class="btn btn-danger mr-5"> <i class="fa fa-heart" aria-hidden="true"></i> Like</button> &nbsp;
+                        <button class="ml-2 btn btn-warning"> <i class="fa fa-comment" aria-hidden="true"></i> Message</button>   
+                    </div>
+                </div>
+        </div>
+        <div class="col-md-9">
+
+        </div>
+    </div>
+</div>

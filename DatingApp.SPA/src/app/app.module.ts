@@ -14,6 +14,17 @@ import { AlertifyService } from './services/alertify.service';
 import { MemberListComponent } from './components/member-list/member-list.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { ListsComponent } from './components/lists/lists.component';
+import { MemberCardComponent } from './components/member-list/member-card/member-card.component';
+import { JwtModule } from '@auth0/angular-jwt';
+import { environment } from 'src/environments/environment';
+import { UserDetailsComponent } from './components/user-details/user-details.component';
+
+function tokenGetter():string | null{
+ let item = localStorage.getItem("token");
+ console.log(item);
+ return item == null ? null :JSON.parse(item).token;
+
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,14 +34,23 @@ import { ListsComponent } from './components/lists/lists.component';
     RegisterComponent,
     MemberListComponent,
     MessagesComponent,
-    ListsComponent
+    ListsComponent,
+    MemberCardComponent,
+    UserDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains:[...environment.origins],
+        disallowedRoutes:[...environment.notAllowedOrigin]
+      },
+    })
   ],
   providers: [{
     useClass:ErrorInterceptor,

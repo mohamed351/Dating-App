@@ -45,7 +45,8 @@ namespace DatingApp.API.Controllers
             {
                 return NotFound("The User is not found");
             }
-            return Ok(query);
+            var map = mapper.Map<UserListDetailsDto>(query);
+            return Ok(map);
 
         }
         

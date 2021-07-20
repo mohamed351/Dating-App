@@ -14,11 +14,11 @@ namespace DatingApp.API.Mapping
         {
             CreateMap<AppUser, UserListDto>()
                 .ForMember(des => des.Age, source => source.MapFrom(a => a.DateOfBirth.CalcuateAge()))
-                .ForMember(des => des.PhotoUrl, source => source.MapFrom(a => a.Photos.FirstOrDefault()));
+                .ForMember(des => des.PhotoUrl, source => source.MapFrom(a => a.Photos.FirstOrDefault().Url));
                 
             CreateMap<AppUser, UserListDetailsDto>()
                 .ForMember(des => des.Age, source => source.MapFrom(a => a.DateOfBirth.CalcuateAge()))
-                .ForMember(des => des.PhotoUrl, source => source.MapFrom(a => a.Photos.FirstOrDefault()));
+                .ForMember(des => des.PhotoUrl, source => source.MapFrom(a => a.Photos.FirstOrDefault().Url));
 
             CreateMap<Photo, PhotoDetailsDto>();
         }

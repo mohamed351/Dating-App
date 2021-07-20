@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { loginModel } from 'src/app/models/loginModel';
 import { AlertifyService } from 'src/app/services/alertify.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -13,7 +14,7 @@ export class NavbarComponent implements OnInit {
     userName:null,
     password:null
   };
-  constructor(public auth:AuthService, private alertfiy:AlertifyService) { }
+  constructor(public auth:AuthService, private alertfiy:AlertifyService, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -27,6 +28,9 @@ export class NavbarComponent implements OnInit {
   }
   logoutUser(){
     this.auth.logout();
+    this.alertfiy.success("successfull logout");
+    this.router.navigate(["/"]);
+    
   }
 
 }
